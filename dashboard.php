@@ -1,30 +1,37 @@
-<?php
-include "config.php";
-if(!isset($_SESSION['user'])){
-    header("Location: login.php");
-    exit;
-}
-?>
+
 
 <?php
 include "config.php";
-if(!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])) {
     header("Location: login.php");
 }
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<link rel="stylesheet" href="css/style.css">
-<header>AlmaFisio</header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
 
-<div class="container">
-<h2>Bem-vindo, <?=$_SESSION['user']['nome']?> 👋</h2>
+</head>
 
-<a href="agendar.php"><button>Agendar Horário</button></a>
-<a href="meus_agendamentos.php"><button>Meus Agendamentos</button></a>
+<body>
+    <header>AlmaFisio</header>
 
-<?php if($_SESSION['user']['tipo']=='admin'){ ?>
-<a href="admin.php"><button>Painel Admin</button></a>
-<?php } ?>
+    <div class="container">
+        <h2>Bem-vindo, <?= $_SESSION['user']['nome'] ?> 👋</h2>
 
-<a href="logout.php"><button style="background:red">Sair</button></a>
-</div>
+        <a href="agendar.php"><button>Agendar Horário</button></a>
+        <a href="meus_agendamentos.php"><button>Meus Agendamentos</button></a>
+
+        <?php if ($_SESSION['user']['tipo'] == 'admin') { ?>
+            <a href="admin.php"><button>Painel Admin</button></a>
+        <?php } ?>
+
+        <a href="logout.php"><button style="background:red">Sair</button></a>
+    </div>
+</body>
+
+</html>
